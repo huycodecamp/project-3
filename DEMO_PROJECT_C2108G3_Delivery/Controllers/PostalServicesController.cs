@@ -15,6 +15,12 @@ namespace DEMO_PROJECT_C2108G3_Delivery.Controllers
             _postalServiceRepository = postalServiceRepository;
 			
         }
+
+		public IActionResult Index()
+		{
+			
+			return View();
+		}
         
 	}
 

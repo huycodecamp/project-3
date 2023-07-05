@@ -19,6 +19,7 @@ namespace DEMO_PROJECT_C2108G3_Delivery
 
 			// Add vong doi cho thanh phan repository
 			builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+			builder.Services.AddScoped<IPostalServiceRepository, PostalServiceRepository>();
 
 			builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
 				.AddEntityFrameworkStores<ApplicationDbContext>();
@@ -38,7 +39,7 @@ namespace DEMO_PROJECT_C2108G3_Delivery
 				app.UseHsts();
 			}
 
-			app.UseHttpsRedirection();
+			//app.UseHttpsRedirection();
 			app.UseStaticFiles();
 
 			app.UseRouting();

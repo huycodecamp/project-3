@@ -1,0 +1,48 @@
+﻿@using DEMO_PROJECT_C2108G3_Delivery.Repository
+@inject IPostalServiceRepository postalService
+@{
+    ViewData["Title"] = "View";
+    var result = postalService.GetAll();
+    
+}
+
+<h1>Postal Service (@result.recordsTotal items)</h1>
+<div>
+    @await Component.InvokeAsync("SelectBoxPostalService", new {cssClass = ""})
+</div>
+<div>
+    <table class="table table-border">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>City</td>
+                <td>State</td>
+                <td>Lat</td>
+                <td>Long</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in result.data)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.City</td>
+                    <td>@item.State</td>
+                    <td>@item.Latitude</td>
+                    <td>@item.Longtitude</td>
+                    <td>
+                        <ul>
+                            <li>Update</li>
+                            <li>Delete</li>
+
+                        </ul>
+                    </td>
+
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+</div>
+

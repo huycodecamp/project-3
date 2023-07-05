@@ -13,10 +13,11 @@ namespace DEMO_PROJECT_C2108G3_Delivery.Controllers
 			_baseRepository = baseRepository;
 			_context = context;
         }
-        public virtual IActionResult Index()
-		{
-			return View();
-		}
+  //      public virtual IActionResult Index()
+		//{
+
+		//	return View();
+		//}
 
 
 		public virtual IActionResult Filter(int index = 1, int size = 10, int draw = 1)
@@ -33,7 +34,7 @@ namespace DEMO_PROJECT_C2108G3_Delivery.Controllers
 		public IActionResult GetById(int id)
 		{
 			var result = _baseRepository.GetById(id);
-			return result;
+			return Ok(result);
 		}
 		public IActionResult Insert(T entity)
 		{
